@@ -25,7 +25,7 @@ form input {
   border: 1px solid #dcdce6;
   border-radius: 8px;
   padding: 0 24px;
-  margin-top: 8px;
+  margin-top: 5px;
 }
 .button {
   width: 100%;
@@ -45,4 +45,21 @@ form input {
 }
 .button:hover {
   filter: brightness(90%);
+}
+.back-link {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  color: #41414d;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+.back-link span {
+  color: #e02041;
+  margin-left: 5px;
+}
+.back-link:hover {
+  opacity: 0.8;
 }

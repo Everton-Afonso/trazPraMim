@@ -1,4 +1,4 @@
-.logon-container {
+.register-container {
   width: 100%;
   max-width: 1120px;
   height: 100vh;
@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: center;
 }
-.logon-container .content {
+.register-container .content {
   width: 100%;
   padding: 96px;
   background: #f0f0f5;
@@ -19,28 +19,27 @@
   justify-content: space-between;
   align-items: center;
 }
-.logon-container .form {
+.register-container .content > div {
   width: 100%;
-  max-width: 450px;
-  margin-right: 30px;
+  max-width: 380px;
 }
-.logon-container .form form h1 {
+.register-container .content > div h1 {
+  margin: 64px 0 32px;
   font-size: 32px;
-  margin-bottom: 32px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
-.logo {
+.register-container .content > div p {
+  font-size: 18px;
+  color: #737380;
+  line-height: 20px;
+}
+.register-container .content form {
   width: 100%;
   max-width: 450px;
 }
-.logo img {
-  width: 500px;
-}
-.work {
+.register-container .content form .input-group {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 50px;
+}
+
+.logo-user-register img {
+  width: 350px;
 }
