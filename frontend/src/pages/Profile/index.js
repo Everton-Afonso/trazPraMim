@@ -1,16 +1,48 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FiTrash } from "react-icons/fi"
+import { FiTrash } from "react-icons/fi";
 import logoImg from "../../assets/Logo.svg";
+
+import api from "../../services/api";
 
 import "./styles.css";
 
 export default function Profile() {
+  const [incidents, setIncidents] = useState([]);
+
+  const travelerId = localStorage.getItem("travelerId");
+  const travelerName = localStorage.getItem("TravelerName");
+
+  useEffect(() => {
+    api.get("profile", {
+        headers: {
+          Authorization: travelerId,
+        },
+      })
+      .then((response) => {
+        setIncidents(response.data);
+      });
+  }, [travelerId]);
+
+  async function hanbleDeleteIncidents(id) {
+    try {
+      await api.delete(`/incidents/${id}`, {
+        headers: {
+          Authorization: travelerId,
+        },
+      });
+
+      setIncidents(incidents.filter(incident => incident.id !== id));
+    } catch (err) {
+      alert("Erro ao deletar, tente novamente");
+    }
+  }
+
   return (
     <div className="profile-container">
       <header>
         <img src={logoImg} alt="Traz Pra Mim" />
-        <span>Bem vindo(a) Everton</span>
+        <span>Bem vindo(a) {travelerName}</span>
 
         <Link className="button" to="/incidents/new">
           Cadastrar nova viagem
@@ -20,65 +52,22 @@ export default function Profile() {
         </button>
       </header>
 
-      <h1>Viajens Cadastradas</h1>
+      <h1>Suas viagem Viajens Cadastradas</h1>
 
       <ul>
-        <li>
-          <strong>Titulo:</strong>
-          <p>Machado</p>
+        {incidents.map((incident) => (
+          <li key={incident.id}>
+            <strong>Titulo:</strong>
+            <p>{incident.title}</p>
 
-          <strong>Descrição:</strong>
-          <p>Descrição teste</p>
+            <strong>Descrição:</strong>
+            <p>{incident.descriptionProducts}</p>
 
-          <strong>Data da viagem:</strong>
-          <p>12/12/1212</p>
-          
-          <button type="button">
-            <FiTrash size={20} color="#a8a8b3" />
-          </button>
-        </li>
-        <li>
-          <strong>Titulo:</strong>
-          <p>Machado</p>
-
-          <strong>Descrição:</strong>
-          <p>Descrição teste</p>
-
-          <strong>Data da viagem:</strong>
-          <p>12/12/1212</p>
-          
-          <button type="button">
-            <FiTrash size={20} color="#a8a8b3" />
-          </button>
-        </li>
-        <li>
-          <strong>Titulo:</strong>
-          <p>Machado</p>
-
-          <strong>Descrição:</strong>
-          <p>Descrição teste</p>
-
-          <strong>Data da viagem:</strong>
-          <p>12/12/1212</p>
-          
-          <button type="button">
-            <FiTrash size={20} color="#a8a8b3" />
-          </button>
-        </li>
-        <li>
-          <strong>Titulo:</strong>
-          <p>Machado</p>
-
-          <strong>Descrição:</strong>
-          <p>Descrição teste</p>
-
-          <strong>Data da viagem:</strong>
-          <p>12/12/1212</p>
-          
-          <button type="button">
-            <FiTrash size={20} color="#a8a8b3" />
-          </button>
-        </li>
+            <button onClick={() => hanbleDeleteIncidents(incident.id)} type="button">
+              <FiTrash size={20} color="#a8a8b3" />
+            </button>
+          </li>
+        ))}
       </ul>
     </div>
   );
