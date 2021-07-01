@@ -36,8 +36,14 @@ export default function TravelerRegister() {
             <input placeholder="Cidade" />
             <input placeholder="Uf" style={{ width: 80 }} />
           </div>
+
           <input placeholder="Endereço" />
-          <textarea placeholder="Uma breve descrição sua" style={{ height: 92 }} />
+          <textarea
+            className="textarea-traveler"
+            placeholder="Uma breve descrição sua viajante"
+            style={{ height: 92 }}
+          />
+
           <button className="button" type="submit">
             Cadastrar
           </button>

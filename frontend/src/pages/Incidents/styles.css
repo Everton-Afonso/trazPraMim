@@ -1,4 +1,4 @@
-.register-container {
+.incidents-container {
   width: 100%;
   max-width: 1120px;
   height: 100vh;
@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: center;
 }
-.register-container .content {
+.incidents-container .content {
   width: 100%;
   padding: 96px;
   background: #f0f0f5;
@@ -19,37 +19,34 @@
   justify-content: space-between;
   align-items: center;
 }
-.register-container .content > div {
+.incidents-container .content > div {
   width: 100%;
   max-width: 380px;
 }
-.register-container .content > div h1 {
+.incidents-container .content > div h1 {
   margin: 64px 0 32px;
   font-size: 32px;
 }
-.register-container .content > div p {
+.incidents-container .content > div p {
   font-size: 18px;
   color: #737380;
   line-height: 20px;
 }
-.register-container .content form {
+.incidents-container .content form {
   width: 100%;
   max-width: 450px;
 }
-.register-container .content form .input-group {
-  display: flex;
+.logo-user-incidents img {
+  width: 350px;
 }
-.textarea-traveler {
+.textarea-incidents {
   width: 100%;
-  min-height: 60px;
+  min-height: 140px;
   color: #333;
   border: 1px solid #dcdce6;
   border-radius: 8px;
   padding: 16px 24px;
   margin-top: 5px;
   resize: none;
-  line-height: 16px;
-}
-.logo-user-register img {
-  width: 350px;
+  line-height: 24px;
 }

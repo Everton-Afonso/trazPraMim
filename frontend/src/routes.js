@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Logon from "./pages/Logon";
 import Profile from "./pages/Profile";
+import Incidents from "./pages/Incidents";
 import UserRegister from "./pages/Register/UserRegister";
 import TravelerRegister from "./pages/Register/TravelerRegister";
 
@@ -15,6 +16,8 @@ export default function Routes() {
         <Route path="/travelerRegister" component={TravelerRegister} />
 
         <Route path="/profile" component={Profile} />
+
+        <Route path="/incidents/new" component={Incidents} />
       </Switch>
     </BrowserRouter>
   );
