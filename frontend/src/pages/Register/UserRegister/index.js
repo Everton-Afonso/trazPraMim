@@ -67,17 +67,20 @@ export default function UserRegister() {
             placeholder="Nome completo"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            required
           />
           <div className="input-group">
             <input
               placeholder="Cpf"
               value={cpf}
               onChange={(e) => setCpf(e.target.value)}
+              required
             />
             <input
               placeholder="Rg"
               value={rg}
               onChange={(e) => setRg(e.target.value)}
+              required
             />
             <input
               type="number"
@@ -85,6 +88,7 @@ export default function UserRegister() {
               style={{ width: 110 }}
               value={age}
               onChange={(e) => setAge(e.target.value)}
+              required
             />
           </div>
           <input
@@ -92,11 +96,13 @@ export default function UserRegister() {
             placeholder="E-mail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
           <input
             placeholder="WhatsApp"
             value={whatsapp}
             onChange={(e) => setWhatsapp(e.target.value)}
+            required
           />
 
           <div className="input-group">
@@ -104,6 +110,7 @@ export default function UserRegister() {
               placeholder="Cidade"
               value={city}
               onChange={(e) => setCity(e.target.value)}
+              required
             />
             <input
               placeholder="Uf"
@@ -111,12 +118,14 @@ export default function UserRegister() {
               maxLength="2"
               value={uf}
               onChange={(e) => setUf(e.target.value)}
+              required
             />
           </div>
           <input
             placeholder="Endereço"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
+            required
           />
           <button className="button" type="submit">
             Cadastrar
