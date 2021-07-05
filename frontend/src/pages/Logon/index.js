@@ -17,16 +17,29 @@ export default function Logon() {
     e.preventDefault();
 
     try {
-      // const responseUser = await api.post("sessionsUser", { id });
-      const responseTraveler = await api.post("sessionsTraveler", { id });
+      try {
+        const responseTraveler = await api.post("sessionsTraveler", { id });
 
-      if (responseTraveler.data.id === id && responseTraveler.data.email === email) {
-        localStorage.setItem("travelerId", id);
-        localStorage.setItem("TravelerName", responseTraveler.data.name);
+        if (responseTraveler.data.id === id && responseTraveler.data.email === email) {
+          localStorage.setItem("travelerId", id);
+          localStorage.setItem("TravelerName", responseTraveler.data.name);
 
-        history.push("/profile");
-      } else {
-        alert("Email ou ID de acesso incorretos");
+          history.push("/traveler");
+        }
+        else {
+          alert("Email ou ID de acesso incorretos");
+        }
+      }
+      catch (err) {
+        const responseUser = await api.post("sessionsUser", { id });
+        
+        if (responseUser.data.id === id && responseUser.data.email === email) {
+          localStorage.setItem("userId", id);
+          localStorage.setItem("userName", responseUser.data.name);
+
+          history.push("/user");
+        }
+
       }
     } catch (err) {
       alert("Email ou ID de acesso incorretos");

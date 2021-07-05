@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FiTrash } from "react-icons/fi";
-import logoImg from "../../assets/Logo.svg";
+import logoImg from "../../../assets/Logo.svg";
 
-import api from "../../services/api";
+import api from "../../../services/api";
 
 import "./styles.css";
 
-export default function Profile() {
+export default function ProfileTraveler() {
   const [incidents, setIncidents] = useState([]);
 
   const travelerId = localStorage.getItem("travelerId");
