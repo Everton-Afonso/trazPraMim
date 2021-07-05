@@ -1,3 +1,4 @@
+
 <h1 align="center">
   <img alt="Traz pra mim" title="Traz Pra Mim" src=".github/Logo.svg" width="220px" />
 </h1>
@@ -23,7 +24,7 @@
 <br/>
 
 <p align="center">
-  Projeto desenvolvido para seleção do pograma de Trainee PADAWANS do Ateliê de Software!
+  Projeto desenvolvido para seleção do programa de Trainee PADAWANS do Ateliê de Software!
 </p>
 
 Se deseja conhecer melhor o trabalho do pessoal do Ateliê de Software entre nesse Link: [desse link](https://atelie.software/)
