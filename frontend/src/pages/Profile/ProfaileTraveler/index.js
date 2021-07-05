@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { FiTrash } from "react-icons/fi";
 import logoImg from "../../../assets/Logo.svg";
 
@@ -12,6 +12,8 @@ export default function ProfileTraveler() {
 
   const travelerId = localStorage.getItem("travelerId");
   const travelerName = localStorage.getItem("TravelerName");
+
+  const history = useHistory();
 
   useEffect(() => {
     api.get("profile", {
@@ -38,6 +40,12 @@ export default function ProfileTraveler() {
     }
   }
 
+  function handleLogout() {
+    localStorage.clear();
+
+    history.push("/");
+  }
+
   return (
     <div className="profile-container">
       <header>
@@ -47,7 +55,7 @@ export default function ProfileTraveler() {
         <Link className="button" to="/incidents/new">
           Cadastrar nova viagem
         </Link>
-        <button type="button" style={{ color: "#E02041" }}>
+        <button onClick={handleLogout} type="button" style={{ color: "#E02041" }}>
           Sair
         </button>
       </header>

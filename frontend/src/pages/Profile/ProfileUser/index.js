@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { FiTrash } from "react-icons/fi";
+import { Link, useHistory } from "react-router-dom";
 import logoImg from "../../../assets/Logo.svg";
 
 import api from "../../../services/api";
@@ -10,63 +9,60 @@ import "./styles.css";
 export default function ProfileUser() {
   const [incidents, setIncidents] = useState([]);
 
-  const travelerId = localStorage.getItem("travelerId");
-  const travelerName = localStorage.getItem("TravelerName");
+  const userId = localStorage.getItem("userId");
+  const userName = localStorage.getItem("userName");
+
+  const history = useHistory();
 
   useEffect(() => {
-    api.get("profile", {
-        headers: {
-          Authorization: travelerId,
-        },
-      })
+    api.get("incidents", {
+      headers: {
+        Authorization: userId,
+      },
+    })
       .then((response) => {
         setIncidents(response.data);
       });
-  }, [travelerId]);
+  });
 
-  async function hanbleDeleteIncidents(id) {
-    try {
-      await api.delete(`/incidents/${id}`, {
-        headers: {
-          Authorization: travelerId,
-        },
-      });
+  function handleLogout() {
+    localStorage.clear();
 
-      setIncidents(incidents.filter(incident => incident.id !== id));
-    } catch (err) {
-      alert("Erro ao deletar, tente novamente");
-    }
+    history.push("/");
   }
 
   return (
     <div className="profile-container">
       <header>
         <img src={logoImg} alt="Traz Pra Mim" />
-        <span>Bem vindo(a) {travelerName}</span>
+        <span>Bem vindo(a) {userName}</span>
 
-        <Link className="button" to="/incidents/new">
-          Cadastrar nova viagem
+        <Link className="button" to="#">
+          Perfil
         </Link>
-        <button type="button" style={{ color: "#E02041" }}>
+        <button onClick={handleLogout} type="button" style={{ color: "#E02041" }}>
           Sair
         </button>
       </header>
 
       <h1>Proximas viajens Cadastradas</h1>
-      <h1>Usúario</h1>
 
       <ul>
         {incidents.map((incident) => (
           <li key={incident.id}>
-            <strong>Titulo:</strong>
-            <p>{incident.title}</p>
+            <strong>Titulo: {incident.title}</strong>
+
 
             <strong>Descrição:</strong>
             <p>{incident.descriptionProducts}</p>
 
-            <button onClick={() => hanbleDeleteIncidents(incident.id)} type="button">
-              <FiTrash size={20} color="#a8a8b3" />
-            </button>
+            <Link
+              className="profile-traveler"
+              to="#"
+              title="Ver perfil do viajante"
+            >
+              Viajen<span>{incident.name}</span>
+            </Link>
           </li>
         ))}
       </ul>

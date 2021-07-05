@@ -25,21 +25,21 @@ export default function Logon() {
           localStorage.setItem("TravelerName", responseTraveler.data.name);
 
           history.push("/traveler");
-        }
-        else {
+        } else {
           alert("Email ou ID de acesso incorretos");
         }
       }
       catch (err) {
         const responseUser = await api.post("sessionsUser", { id });
-        
+
         if (responseUser.data.id === id && responseUser.data.email === email) {
           localStorage.setItem("userId", id);
           localStorage.setItem("userName", responseUser.data.name);
 
           history.push("/user");
+        } else {
+          alert("Email ou ID de acesso incorretos");
         }
-
       }
     } catch (err) {
       alert("Email ou ID de acesso incorretos");
