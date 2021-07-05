@@ -20,6 +20,16 @@
   <img alt="Traz pra mim" src=".github/TrazPraMim.png" width="100%">
 </p>
 
+<br/>
+
+<p align="center">
+  Projeto desenvolvido para seleção do pograma de Trainee PADAWANS do Ateliê de Software!
+</p>
+
+Se deseja conhecer melhor o trabalho do pessoal do Ateliê de Software entre nesse Link: [desse link](https://atelie.software/)
+
+<br/>
+
 ## 🚀 Tecnologias
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
@@ -27,22 +37,20 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - HTML
 - CSS
 - JavaScript
+- ReactJS
 - NodeJS
-- EJS
 - Express
-- SQLite
+- SQLite3
 
 ## 💻 Projeto
 
-O Rocket.Q é uma aplicação de interação através de perguntas, sendo possível criar uma sala para internautas anônimos fazerem perguntas e o criador da sala em posse de uma senha gerenciar essas perguntas e marcar como lidas.
+### Traz Pra Mim
+
+É produto digital voltado para pessoas que desejam adquirir produtos típicos de outras cidades. O Traz pra mim é uma aplicação web que permite adquiri-los de viajantes que
+possuem como origem a cidade de onde os produtos são fabricados. Diferente de se sujeitar a preços altos de frete de transportadoras o nosso produto
+conecta o comprador com o viajante antes da viagem acontecer, permitindo preços menores.
+
 
 ## 🔖 Layout
 
-Você pode visualizar o layout do projeto através [desse link](https://www.figma.com/file/vp3iFfd1ohCbHyDX9jCiQi/Roquet.q). É necessário ter conta no [Figma](https://figma.com) para acessá-lo.
-
-## :memo: Licença
-Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](.github/LICENSE.md) para mais detalhes.
-## 
-<p align="center">
-Feito com ♥ by Rocketseat :wave: [Participe da nossa comunidade!](https://discordapp.com/invite/gCRAFhc)
-</p>
+Você pode visualizar o layout do projeto clique nesse link: [desse link](https://www.figma.com/file/izjeDnVyT9LRhznqw4WT6b/Untitled?node-id=0%3A1).
